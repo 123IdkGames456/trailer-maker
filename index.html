@@ -22,17 +22,17 @@
 <section class="hero"><div class="eyebrow">FIND THE MOMENTS THAT MATCH YOUR VIBE</div><h1>Your video.<br><span style="color:var(--lime)">Your kind of story.</span></h1><p>Upload a video. The local clip finder scans visual patterns and finds moments worth checking.</p></section>
 
 <section class="panel">
-<h2>01 / Upload and analyze</h2><p class="sub">The browser scans frames on your device and builds a visual map. No AI or cloud analysis.</p>
+<h2>01 / Upload and analyze</h2><p class="sub">Reads frames directly from the video you selected. No analysis downloads, AI models, libraries or cloud processing.</p>
 <div class="row">
 <div>
-<div class="field"><label>Processing mode</label><div class="local-pill">● ON-DEVICE · NO AI · NO VIDEO UPLOAD</div><span class="hint">All video analysis happens locally in your browser.</span></div>
+<div class="field"><label>Processing mode</label><div class="local-pill">● LOCAL SCAN · ZERO ANALYSIS DOWNLOADS</div><span class="hint">Uses built-in video, Canvas and JavaScript only. Nothing is downloaded to analyze your video.</span></div>
 <div class="field"><label>Video file</label><label class="drop" for="video"><strong id="videoName">＋ Choose a video</strong><small>MP4, MOV, WebM</small><input id="video" type="file" accept="video/*"></label></div>
 <div class="actions"><button class="btn primary" id="analyze" disabled>Analyze video on device</button><button class="btn secondary" id="clear">Clear</button></div>
 </div>
 <div class="preview" id="preview">Video preview appears here</div>
 </div>
 <div class="status"><div class="statushead"><span id="statusTitle">Waiting for video</span><span id="pct">0%</span></div><p id="statusText">Choose a video to scan it locally.</p><div class="bar"><span id="bar"></span></div><div class="progress-meta"><div><span class="meta-label">TIME ELAPSED</span><b id="elapsed">00:00</b></div><div><span class="meta-label">EST. TIME LEFT</span><b id="remaining">—</b></div><div><span class="meta-label">CURRENT TASK</span><b id="currentTask">Waiting</b></div></div><p class="eta-note" id="etaNote">Time estimates appear while a task is running.</p></div>
-<p class="notice">Your video stays on this device. This is a rule-based visual clip finder, not an AI that understands objects, people, dialogue, story or events. Export tools may download their browser libraries the first time you use them.</p>
+<p class="notice">ANALYSIS: 100% on-device using built-in browser features. No downloads, AI models, external libraries or uploads. Exporting MP4 clips is separate and may download an export engine only when you choose to export.</p>
 </section>
 
 <section class="panel hidden" id="vibePanel">
@@ -49,7 +49,7 @@
 <div class="clip-grid" id="clipResults"></div>
 <p class="notice">Preview uses the original uploaded video. Download Selected Clips cuts the chosen moments into separate MP4 files in your browser.</p>
 </section>
-<footer>TRAILER STUDIO · ON-DEVICE CLIP FINDER · No AI · No video upload</footer>
+<footer>TRAILER STUDIO · LOCAL CLIP FINDER · ZERO ANALYSIS DOWNLOADS</footer>
 </div>
 <script>
 const $=id=>document.getElementById(id);
