@@ -49,7 +49,7 @@ async function renderTrailer(p){
   const endCode=await f.exec(['-y','-loop','1','-i','ending.'+imageExt,'-t','3.5','-vf','scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,fps=30,settb=AVTB,setpts=PTS-STARTPTS,format=yuv420p','-c:v','libx264','-preset','ultrafast','-pix_fmt','yuv420p','ending.mp4']);if(endCode!==0)throw Error('Could not create the ending image clip (FFmpeg error '+endCode+').');
   clipFiles.push('ending.mp4');
  }
- const args=[];clipFiles.forEach(name=>args.push('-i',name));
+ const args=['-y'];clipFiles.forEach(name=>args.push('-i',name));
  const transition=0.32;let graph='',previous='[0:v]',offset=0;
  for(let i=1;i<clipFiles.length;i++){
   const previousDuration=i-1<p.clips.length?p.clips[i-1].end-p.clips[i-1].start:3.5;
