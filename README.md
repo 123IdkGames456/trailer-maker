@@ -1,19 +1,29 @@
-# Trailer Studio
+# Trailer Studio — AI Clip Finder
 
-A browser-based AI trailer editor prototype.
+A browser-based AI video clip finder. It helps you find usable moments in a source video based on the mood and type of scene you want.
 
-## What it does
+## Workflow
 
-1. Takes your Gemini API key and uploads the selected video to the Gemini Files API.
-2. Uses Gemini 3.6 Flash video understanding, preferring agentic inspection when available and falling back to standard video analysis if the API rejects that mode.
-3. Creates a trailer plan with factual shot descriptions and timestamps, then asks Gemini to independently verify the selected moments.
-4. Lets you inspect the source video, edit shot names and timestamps, remove shots, or add a shot at the current preview position before rendering.
-5. Uses FFmpeg.wasm in the browser to cut the selected clips, normalize them, add cross-fade transitions, append an optional ending image, and mix optional background music.
-6. Shows the rendered MP4 in a player and provides an MP4 download. The edit plan can also be downloaded as JSON.
+1. Enter your own Gemini API key and upload a video.
+2. Gemini analyzes the footage and creates a scene inventory with timestamps and neutral visual descriptions.
+3. Choose from 10 main vibe categories:
+   - Horror & Suspense
+   - Serious Drama
+   - Love & Romance
+   - History
+   - Action
+   - Mystery
+   - Comedy
+   - Adventure
+   - Fantasy & Sci-Fi
+   - Emotional & Inspiring
+4. Each category contains 10 more specific sub-options. Select them yourself, use AI Choose for a category, or let AI choose the main categories and matching sub-options based on the footage.
+5. Ask AI to find clips that match the selected vibes.
+6. Preview each suggestion, select the clips you want, and download the selected moments as separate MP4 files inside one ZIP archive.
 
 ## Run
 
-Enable GitHub Pages for this repository and open the published site, or serve the repository over HTTPS/local HTTP for testing. The first render downloads FFmpeg.wasm and may take a while.
+Enable GitHub Pages for this repository and open the published site, or serve the repository over HTTPS/local HTTP for testing. The first clip export downloads FFmpeg.wasm and may take a while. ZIP packaging also loads JSZip from a CDN.
 
 ## API key and privacy
 
@@ -23,9 +33,8 @@ The source video is uploaded to Google's Gemini API for analysis. Do not upload 
 
 ## Current limitations
 
-- AI video descriptions can still be wrong. Review each shot in the source preview and correct its name or timestamps before rendering.
-- The optional music upload is supported; automatic composition of original music and generated sound effects is not implemented yet.
-- The browser renderer applies cross-fades between clips. More transition types and per-shot effects can be added later.
-- Original source audio is not currently carried through the cut sequence.
-- Rendering performance depends on the device's memory and processing power. Large videos may fail in a mobile browser.
-- This is a prototype. The JavaScript syntax has been checked, but a complete real-device video export test has not yet been performed.
+- AI can still misunderstand a scene or choose an imperfect timestamp. Preview every suggested clip before using it.
+- The scene inventory and clip search depend on the video understanding and timestamp accuracy provided by Gemini.
+- Exporting many long clips can use substantial memory and may fail on phones or tablets.
+- Clip export keeps the source audio when present, but source formats may vary.
+- The project is a prototype. JavaScript syntax has been checked, but a complete real-device video analysis and ZIP export test has not yet been performed.
